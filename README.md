@@ -1,6 +1,16 @@
-# follow-everything-code
+# Follow-Everything
 
-The code with the Docker environment is being processed and will be released at the end of May.
+# Overview
+Welcome to the [**follow everying**](https://follow-everything.github.io/) code repository, a robust leader-following framework to enable the robot to follow a leader with an arbitrary shape.
+
+[![Watch the video](https://img.youtube.com/vi/N3d6XKs4Jns/0.jpg)](https://www.youtube.com/watch?v=N3d6XKs4Jns)
+
+
+
+
+![Ubuntu 22.04 Test Passed](https://img.shields.io/badge/Ubuntu-22.04-blue)
+
+This code has been tested on ubuntu22.04 with ros2 humble and ros1 noetic. The code with the Docker environment is being processed and will be released recently.
 
 
 # How to run
