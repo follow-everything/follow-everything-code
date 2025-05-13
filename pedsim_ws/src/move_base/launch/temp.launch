@@ -1,0 +1,3 @@
+<launch>
+  <node pkg="move_base" type="temp.py" name="temp" output="screen"/>
+</launch>

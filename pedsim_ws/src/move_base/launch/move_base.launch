@@ -1,0 +1,36 @@
+<launch>
+  <param name="/use_sim_time" value="true"/>
+
+  <!-- fake map -->
+  <include file="$(find pedsim_map)/launch/pedsim_map.launch"/>
+  <!-- fake amcl -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="fake_localization" args="0 0 0 0 0 0 1 map odom"/>
+  <!-- Publish static transform: base_link -> trunk -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="tf_base_to_trunk" args="0 0 0 0 0 0 base_link trunk" />
+  <!-- Publish static transform: base_link -> livox -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="tf_base_to_livox" args="0.2 0 0.12 0 0 0 base_link livox" />
+
+  <!-- move_base -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <!-- graphic_teb -->
+    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+    <rosparam file="$(find move_base)/param/robot_constrains.yaml" command="load" ns="TebLocalPlannerROS"/>
+    <rosparam file="$(find move_base)/param/teb_local_planner_params.yaml" command="load" />
+    <!-- costmap -->
+    <rosparam file="$(find move_base)/param/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find move_base)/param/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find move_base)/param/robot_constrains.yaml" command="load" ns="global_costmap"/>
+    <rosparam file="$(find move_base)/param/robot_constrains.yaml" command="load" ns="local_costmap"/>
+    <!-- move_base -->
+    <rosparam file="$(find move_base)/param/move_base_params.yaml" command="load" />
+  </node>
+
+
+  <!-- translate topic type -->
+  <node pkg="move_base" type="goal_pose_remap_node.py" name="goal_pose_remap_node" output="screen"/>
+  <node pkg="move_base" type="pedestrian_to_goal_node.py" name="pedestrian_to_goal_node" output="screen"/>
+  <node pkg="move_base" type="velocity_and_safedistance_node.py" name="velocity_and_safedistance_node" output="screen"/>
+  <!-- TODO -->
+  <!-- <include file="$(find teb_local_planner)/launch/dynamic_obstacle_trans.launch"/> -->
+
+</launch>
