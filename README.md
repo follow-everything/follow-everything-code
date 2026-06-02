@@ -1,5 +1,17 @@
 # Follow-Everything
 
+# [Correction] Notes before all
+In the original ICRA manuscript, we compared our method against a baseline method SA-MPC, whose reproduction was inadequately and unclearly documented in our manuscript. Compared with the original SA-MPC, our reproduced version includes two modifications:
+* adopting YOLOv11 for pedestrian detection,
+* adopting MPC with collision avoidance for motion planning. Note that the detailed implementation settings and hyperparameters during our reproduction may differ from those used by the original authors of SA-MPC, which consequently lead to suboptimal performance of our reproduced baseline.
+
+This discrepancy may mislead readers into attributing the unsatisfactory results to inherent drawbacks of the original SA-MPC algorithm, while overlooking implementation-specific issues incurred during algorithm reproduction and simulation system migration.
+
+Accordingly, we have revised the baseline name to the more precise phrasing “MPC-YOLO” in the [updated manuscript](https://arxiv.org/abs/2504.19399), instead of the original "SA-MPC".
+
+We sincerely appreciate the first author’s valuable comments and offer our sincere apologies for this inaccurate description in the original submission.
+
+
 # Overview
 Welcome to the [**follow everying**](https://follow-everything.github.io/) code repository, a robust leader-following framework to enable the robot to follow a leader with arbitrary shapes.
 
