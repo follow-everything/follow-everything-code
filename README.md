@@ -7,7 +7,7 @@ In the original ICRA manuscript, we compared our method against a baseline metho
 
 This discrepancy may mislead readers into attributing the unsatisfactory results to inherent drawbacks of the original SA-MPC algorithm, while overlooking implementation-specific issues incurred during algorithm reproduction and simulation system migration.
 
-Accordingly, we have revised the baseline name to the more precise phrasing “MPC-YOLO” in the [updated manuscript](https://arxiv.org/abs/2504.19399), instead of the original "SA-MPC".
+To avoid this situation, the baseline method SA-MPC has been removed in the [updated manuscript](https://arxiv.org/abs/2504.19399). 
 
 We sincerely appreciate the first author’s valuable comments and offer our sincere apologies for this inaccurate description in the original submission.
 
